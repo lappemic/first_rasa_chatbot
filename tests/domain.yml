@@ -1,0 +1,57 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - bot_challenge
+  - buy_phone_laptop
+  - give_information
+  - not_applicable
+
+entities:
+  - category
+  - ram
+  - price
+  - camera
+
+slots:
+  category:
+    type: text
+  ram:
+    type: text
+  price:
+    type: text
+  camera:
+    type: text
+
+responses:
+  utter_how_can_I_help:
+  - text: "Welcome. I'm your shopping bot. I can help you finding what you are looking for."
+
+  utter_ask_camera:
+  - text: "What megapixel camera are you looking for? (Write na if not applicable)"
+
+  utter_ask_price:
+  - text: "Whats your budget?"
+
+  utter_ask_ram:
+  - text: "How much GB RAM are you looking for?"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+actions:
+  - action_search_results
+  - utter_iamabot
+  - utter_ask_ram
+  - utter_goodbye
+  - utter_how_can_I_help
+  - utter_ask_camera
+  - utter_ask_price
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
